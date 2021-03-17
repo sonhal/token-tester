@@ -1,0 +1,27 @@
+{{<base}}
+    {{$content}}
+        <div class="card sm-12 col padding-small">
+            <h2 class="card-title" style="color: green;">Successfully Authenticated</h2>
+        </div>
+        <div class="card sm-12 col padding-small">
+            <h2 class="card-title">Request</h2>
+            <div class="card-body">
+                <p class="card-text">
+                <h4>Request Headers</h4>
+                {{#request_headers}}
+                    <p><b>{{name}}:</b> {{value}} </p>
+                {{/request_headers}}
+                <h4>Request Cookies</h4>
+                {{# request_cookies }}
+                    <p><b>{{name}}:</b> {{value}} </p>
+                {{/request_cookies}}
+                <h4>Request Params</h4>
+                {{#request_query_params}}
+                    <p><b>{{key}}:</b> {{value}} </p>
+                {{/request_query_params}}
+                </p>
+            </div>
+        </div>
+
+    {{/content}}
+{{/base}}
