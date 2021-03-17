@@ -43,9 +43,12 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.PAT }}
 
-      - name: Publish artifact
+      - name: Build artifact
         env:
           IMAGE: ghcr.io/sonhal/token-tester:latest
         run: |
             ./gradlew jibDockerBuild --image="${IMAGE}"
-            docker push "${IMAGE}"
+      - name: Publish artifact
+        env:
+          IMAGE: ghcr.io/sonhal/token-tester:latest
+        run: docker push "${IMAGE}"
