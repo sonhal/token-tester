@@ -8,10 +8,10 @@ Typical usage is to run the application using docker, configured with environmen
 variables.
 ### Configuration
 
-- ISSUER_NAME: (Default) `testissuer`
+- ISSUER_NAME: (Default) `http://localhost:8888/default`
 - OIDC_DISCOVERY_URL: (Default) `http://localhost:8888/default/.well-known/openid-configuration`
 - OIDC_ACCEPTED_AUDIENCE: (Default) `aud-localhost`
-
+- COOKIE_NAME: (Default) `localhost-idtoken`
 ## Endpoints
 Returns HTML
 
