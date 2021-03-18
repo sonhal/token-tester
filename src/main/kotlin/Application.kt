@@ -61,7 +61,7 @@ fun Application.module(testing: Boolean = false) {
 
         authenticate {
             get("/safe") {
-                call.respond(MustacheContent("authenticated.hbs",
+                call.respond(MustacheContent("authorized.hbs",
                     mapOf(
                         "request_headers" to headersFromCall(call.request.headers),
                         "request_cookies" to cookiesFromCall(call.request.cookies),
