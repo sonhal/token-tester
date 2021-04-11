@@ -34,14 +34,15 @@ dependencies {
     implementation("io.ktor:ktor-locations:$ktor_version")
     implementation("io.ktor:ktor-metrics:$ktor_version")
     implementation("io.ktor:ktor-server-sessions:$ktor_version")
-    implementation("io.ktor:ktor-auth:$ktor_version")
     implementation("io.ktor:ktor-jackson:$ktor_version")
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-core-jvm:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
 
     // JWT validation
+    implementation("io.ktor:ktor-auth:$ktor_version")
     implementation("no.nav.security:token-validation-ktor:$token_validation_version")
+    implementation("io.ktor:ktor-auth-jwt:$ktor_version")
 
 
     testImplementation(kotlin("test-junit5"))
