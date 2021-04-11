@@ -14,6 +14,7 @@ import io.ktor.request.*
 import io.ktor.response.*
 import no.nav.security.token.support.ktor.tokenValidationSupport
 import org.slf4j.event.Level
+import java.net.URL
 import java.util.concurrent.TimeUnit
 
 
@@ -39,7 +40,13 @@ fun Application.module(testing: Boolean = false) {
     val jwkIssuer = config.property("jwt.domain").getString()
     val jwkRealm = "ktor jwt auth test"
     val audience = config.property("jwt.audience").getString()
-    val jwkProvider = JwkProviderBuilder(jwkIssuer)
+    val jwks_uri = config.property("jwt.jwks_uri").getString()
+    val builder = if (jwks_uri.isBlank()) {
+        JwkProviderBuilder(jwkIssuer)
+    } else {
+        JwkProviderBuilder(URL(jwks_uri))
+    }
+    val jwkProvider = builder
         .cached(10, 24, TimeUnit.HOURS)
         .rateLimited(10, 1, TimeUnit.MINUTES)
         .build()
