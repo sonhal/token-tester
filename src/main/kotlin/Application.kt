@@ -89,7 +89,7 @@ fun Application.module(testing: Boolean = false) {
             }
         }
 
-        authenticate("jwt") {
+        authenticate("nav") {
             get("/nav") {
                 call.respond(MustacheContent("authorized.hbs",
                     mapOf(
